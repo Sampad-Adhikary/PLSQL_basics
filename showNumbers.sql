@@ -1,0 +1,1 @@
+SELECT * from Numbers; --Print the table Numbers
