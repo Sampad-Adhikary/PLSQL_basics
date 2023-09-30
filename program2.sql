@@ -1,25 +1,23 @@
-CREATE TABLE Employee (Name VARCHAR(50), Salary INT);
-
--- Declare variables to store employee names and salaries
+-- Declare variables to store student names and marks
 DECLARE
-    emp1_name VARCHAR(50);   -- Variable for the first employee's name
-    emp2_name VARCHAR(50);   -- Variable for the second employee's name
-    emp1_salary INT;         -- Variable for the first employee's salary
-    emp2_salary INT;         -- Variable for the second employee's salary
+    student1_name VARCHAR(50);   -- Variable for the first student's name
+    student2_name VARCHAR(50);   -- Variable for the second student's name
+    student1_marks INT;         -- Variable for the first student's marks
+    student2_marks INT;         -- Variable for the second student's marks
 BEGIN
-    -- Assign values to employee variables
-    emp1_name := 'John';     -- Assign the name 'John' to emp1_name
-    emp2_name := 'Jane';     -- Assign the name 'Jane' to emp2_name
-    emp1_salary := 75000;    -- Assign the salary 75000 to emp1_salary
-    emp2_salary := 55000;    -- Assign the salary 85000 to emp2_salary
+    -- Assign values to student variables
+    student1_name := 'John';     -- Assign the name 'John' to student1_name
+    student2_name := 'Jane';     -- Assign the name 'Jane' to student2_name
+    student1_marks := 75;    -- Assign the marks 75000 to student1_marks
+    student2_marks := 55;    -- Assign the marks 85000 to student2_marks
     
-    -- Compare salaries and insert the appropriate employee data into the table
-    IF emp1_salary > emp2_salary THEN
-        INSERT INTO Employee VALUES (emp1_name, emp1_salary); -- Insert John's data
-        SELECT emp1_name;  -- Select and return emp1_name if emp1_salary > emp2_salary
+    -- Compare marks and insert the appropriate student data into the table
+    IF student1_marks > student2_marks THEN
+        INSERT INTO Student VALUES (student1_name, student1_marks); -- Insert John's data
+        SELECT student1_name;  -- Select and return student1_name if student1_marks > student2_marks
     ELSE
-        INSERT INTO Employee VALUES (emp2_name, emp2_salary); -- Insert Jane's data
-        SELECT emp2_name;  -- Select and return emp2_name if emp2_salary >= emp1_salary
+        INSERT INTO Student VALUES (student2_name, student2_marks); -- Insert Jane's data
+        SELECT student2_name;  -- Select and return student2_name if student2_marks >= student1_marks
     END IF;
     
 END;

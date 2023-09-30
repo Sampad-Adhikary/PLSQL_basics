@@ -1,0 +1,107 @@
+{
+    "title": "PL/SQL Basics with MariaDB",
+    "steps": [
+      {
+        "step": "1",
+        "task": "Welcome to the PL/SQL Basics manual! In this exercise, we'll cover fundamentals of PL/SQL and some of its key programming concepts. MariaDB is a popular open-source relational database management system (RDBMS) that is widely used in web applications. MariaDB is a great choice for beginners (due to it being open-source and successor to widely used MySQL database) because it is easy to use and has a large community of users and developers."
+      },
+      {
+        "link":"https://mariadb.org/documentation/",
+        "step": "2",
+        "task": "For more information on MariaDB, feel free check out the official documentation. "
+      },
+      {
+        "step": "3",
+        "task": "In this exercise, we will use MariaDB Docker image provided by bitnami to use as server and client."
+      },
+      {
+        "content": "docker ps",
+        "step": "4",
+        "task": "Open terminal (you can use terminal section provided in the lab or terminal in VS Code) and ensure docker is running by listing running containers. We expect to see no containers."
+      },
+      {
+        "content": "https://gist.github.com/Sampad-Adhikary/be6859e7aeefcc4032aa68452a6f8e3e",
+        "step": "5",
+        "task": "Run bitnami/mariadb:latest docker image in detached mode, name it mariadb-server and set password for 'root' user as 'root123'."
+      },
+      {
+        "content": "docker ps",
+        "step": "6",
+        "task": "The image is not present on our machine so it will be pulled from Dockerhub registry. Once the command completes, check running containers again. You will see running 'mariadb-server' container."
+      },
+      {
+        "step": "7",
+        "task": "Now we will open VsCode to proceed with he further steps. We will be using it to write and execute PL/SQL codes which will run on the MariaDB database. Firstly Open the terminal in VS Code."
+      },
+      {
+        "content":"docker exec -it mariadb-server mariadb -u root -p",
+        "step": "8",
+        "task": "'mariadb -h localhost -u root' command runs mariadb binary while defining 'mariadb-server' server and 'root' user. Enter the password 'root123' when prompted and hit enter to get into the MariaDB CLI"
+      },
+      {
+        "content": "CREATE DATABASE studentDB;",
+        "step": "9",
+        "task": "First Let's create a new database, use the command `CREATE DATABASE dbname;`.You can replace `dbname` with your desired database name. For now, Let's create a database called `studentDB`."
+      },
+      {
+        "step":"10",
+        "task":"Now that we have started MariaDB and have created a database 'studentDB' to work on, its time to connect VS Code to the MariaDB Database so that we can easily code and run our PL/SQL programs."
+      },
+      {
+        "step":"11",
+        "task":"To connect VS Code to the MariaDB Database, we will use the 'SQLTools' and 'SQLTools MySQL/MariaDB/TiDB' extensions for VS Code. We have preinstalled these extensions for your convenience. To install these extensions on your system, click on the 'Extensions' icon on the left side of the VS Code window and install the extensions one by one."
+      },
+      {
+        "content":"git clone https://github.com/Sampad-Adhikary/PLSQL_basics.git",
+        "step":"12",
+        "task":"We have added all the programs for this lab to the 'PLSQL_basics' github repository. Clone this repository to fetch all the programs and the MariaDB connection configuration."
+      },
+      {
+        "content":"/home/coder/workspace/PLSQL_basics/",
+        "step":"13",
+        "task":"Open the 'PLSQL_basics' folder in VS Code. You can do this by clicking on the 'File' menu on the top left corner of the VS Code window and selecting 'Open Folder' and there you can paste the following path and click 'ok'."
+      },
+      {
+        "step":"14",
+        "task":"Now that we have opened the 'PLSQL_basics' folder in VS Code, we will now configure the MariaDB connection. To do this, click on the 'SQLTools' icon on the left side of the VS Code window and click on 'myConnection' under the connections tab. Since we have already configured the connection for you you can enter the password 'root123' to connect to MariaDB. In your local system you have to click on Add connection and configure the settings there."
+      },
+      {
+        "step":"15",
+        "task":"Open the 'myConnection.session.sql' file. This is a single sql command which will set the SQL mode as 'Oracle' after which we will be able to execute PL/SQL blocks. So to run this code click on 'Run on active connection'. You won't see any output on running this."
+      },
+      {
+        "step":"16",
+        "task":"Open the program1.sql file and have a read at it. This is the structure of a basic PL/SQL code block and in even in the advanced programs that you will write this structure will be followed. You can run the program by clicking on 'Run on active connection'. This program will print 'Hello World' on your screen."
+      },
+      {
+        "step":"17",
+        "task":"Now that we have run our first PL/SQL program, let's create a table in our database. Open the createStudent.sql file and run it to create a table Student with a single field Marks."
+      },
+      {
+        "step":"18",
+        "task":"Open 'program2.sql' file, this file demonstrates how Conditionals i.e. 'IF' & 'ELSE' is handled and how we can use it to conditionally add data to the table. Here in this program we have added the student's data to the table whose marks is greater. We have also printed the students name which will be the output for this program."
+      },
+      {
+        "step":"19",
+        "task":"Open the 'showStudent.sql' file and run it to confirm that data has been added conditionally to the 'Student' table. You can play around with the code in step 18 to see how data gets added based on different conditions."
+      },
+      {
+        "step":"20",
+        "task":"Open the 'program3.sql' file. This file demonstrates how Loops i.e. 'WHILE' & 'FOR' is handled and how we can use it to add data to the table. Here in this program we have added the numbers from 10->1 using FOR loop and 1->10 using WHILE loop to the table 'Numbers'. You can check the table by running the 'showNumbers.sql' to see how 'REVERSE' keyword works in FOR loop."
+      },
+      {
+        "step":"21",
+        "task":"Open the 'createTeacher_Data.sql' file and run it to create a table with some data about the Teachers. We will use this table in the upcoming step."
+      },
+      {
+        "step":"22",
+        "task":"Open the 'program4.sql' file the file is heavily commented for you understanding. This file demonstrates an important programming concept, which is 'Exception Handling'. Here in this program we have tried to handle any exception or error that might occur when trying to fetch the salary of a Teacher from the 'Teacher_Data' table. If the data is found we will store it in 'salary' variable and print it. If no data matches with the given ID, we print 'No Data Found' and if any other error occurs we print 'An error occured'."
+      },
+      {
+        "step": "23",
+        "task": "Congratulations! You've covered the basics of PL/SQL."
+      }
+    ],
+    "time": "30 minutes"
+  }
+  

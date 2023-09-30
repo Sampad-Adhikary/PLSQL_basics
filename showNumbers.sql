@@ -1,1 +1,2 @@
-SELECT * from Numbers; --Print the table Numbers
+SELECT * from Numbers;
+-- DROP TABLE Numbers;

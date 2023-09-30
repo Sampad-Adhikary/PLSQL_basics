@@ -1,0 +1,1 @@
+CREATE TABLE Numbers (Num INT); -- Create the Numbers table with one column named Num of type INT

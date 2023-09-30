@@ -13,5 +13,11 @@
             "database": "studentDB",
             "username": "root"
         }
+    ],
+    "cSpell.words": [
+        "bitnami",
+        "dbname",
+        "Dockerhub",
+        "PLSQL"
     ]
 }
