@@ -12,6 +12,20 @@
             "name": "myConnection",
             "database": "studentDB",
             "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "myconn",
+            "database": "studentDB",
+            "username": "root",
+            "password": ""
         }
     ],
     "cSpell.words": [
@@ -19,5 +33,6 @@
         "dbname",
         "Dockerhub",
         "PLSQL"
-    ]
+    ],
+    "docwriter.style": "Auto-detect"
 }
